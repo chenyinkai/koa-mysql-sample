@@ -9,7 +9,7 @@
         -mysql.js  // 连接数据库等一些方法
     -route
         -index.js  // 路由
-    -static
+    -static  // 静态文件
     -views
         -index.html  // 主页
         -login.html  // 登录
@@ -25,7 +25,9 @@ cd koa-mysql-sample
 
 npm install
 
-node app.js  // 打开 [http://localhost:3000](http://localhost:3000)
+node app.js
+
+打开 http://localhost:3000
 ```
 
 **注意**
