@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>register</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <style>
+    body{
+      padding: 3%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-group">
+    <label for="exampleInputEmail1">姓名</label>
+    <input type="email" class="form-control name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control password" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">确认密码</label>
+    <input type="password" class="form-control password-confirm" placeholder="Confirm Password">
+  </div>
+  <button type="button" class="btn btn-primary">立即注册</button>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    document.querySelector('button').onclick = function(){
+      let name = document.querySelector('.name').value
+      let password = document.querySelector('.password').value
+      let passwordConfirm = document.querySelector('.password-confirm').value
+      if (name && password) {
+        if (password === passwordConfirm) {
+          axios.post('/register', {
+            name: name,
+            pass: password
+          })
+            .then(function (response) {
+              console.log(response);
+              if (response.data.data === 0) {
+                window.location.href = 'index.html'
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        } else {
+          alert('密码输入不一致')
+        }
+      } else {
+        alert('姓名或密码不能为空')
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <style>
+    body {
+      padding: 3%;
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .register-num {
+      font-size: 50px;
+    }
+
+    ul{
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btn-box">
+    <button type="button" class="btn btn-primary login">登录</button>
+    <button type="button" class="btn btn-default register">注册</button>
+  </div>
+  <div class="register-num">
+    当前已注册人数：
+    <span></span>
+  </div>
+  <ul>
+
+  </ul>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    axios.get('/userData')
+      .then(function (response) {
+        console.log(response);
+        document.querySelector('.register-num > span').innerText = response.data.total
+        let li = ''
+        for (let i = 0; i < response.data.name.length; i++) {
+          li += `<li>${response.data.name[i].name}</li>`
+        }
+        document.querySelector('ul').innerHTML = li
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+      document.querySelector('.login').onclick = () => {
+        window.location.href = 'login.html'
+      }
+
+      document.querySelector('.register').onclick = () => {
+        window.location.href = 'register.html'
+      }
+  </script>
+</body>
+
+</html>
