@@ -22,7 +22,7 @@
       font-size: 50px;
     }
 
-    ul{
+    ul {
       font-size: 30px;
     }
   </style>
@@ -55,14 +55,14 @@
       .catch(function (error) {
         console.log(error);
       });
+      
+    document.querySelector('.login').onclick = () => {
+      window.location.href = 'login.html'
+    }
 
-      document.querySelector('.login').onclick = () => {
-        window.location.href = 'login.html'
-      }
-
-      document.querySelector('.register').onclick = () => {
-        window.location.href = 'register.html'
-      }
+    document.querySelector('.register').onclick = () => {
+      window.location.href = 'register.html'
+    }
   </script>
 </body>
 

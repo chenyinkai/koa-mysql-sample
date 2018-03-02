@@ -94,14 +94,4 @@ router.get('/index.html', async ctx => {
   ctx.response.body = fs.createReadStream('./views/index.html')
 })
 
-router.get('/register.html', async ctx => {
-  ctx.response.type = 'html'
-  ctx.response.body = fs.createReadStream('./views/register.html')
-})
-
-router.get('/login.html', async ctx => {
-  ctx.response.type = 'html'
-  ctx.response.body = fs.createReadStream('./views/login.html')
-})
-
 module.exports = router
