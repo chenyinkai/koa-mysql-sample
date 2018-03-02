@@ -3,7 +3,7 @@ const userModel = require('../lib/mysql') // 引入数据库方法
 const fs = require('fs')
 const md5 = require('md5')
 
-// 访问 / 跳转到register
+// 访问 / 跳转到index
 router.get('/', async (ctx, next) => {
   ctx.redirect('/index.html')
 })
