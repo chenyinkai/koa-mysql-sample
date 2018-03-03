@@ -90,7 +90,7 @@ router.post('/login', async (ctx, next) => {
 
 // 测试路由，读取文件
 router.get('/index.html', async ctx => {
-  ctx.response.type = 'html'
+  // ctx.response.type = 'html'
   ctx.response.body = fs.createReadStream('./views/index.html')
 })
 
