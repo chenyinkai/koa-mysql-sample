@@ -5,7 +5,7 @@ const md5 = require('md5')
 
 // 访问 / 跳转到index
 router.get('/', async (ctx, next) => {
-  ctx.redirect('/index.html')
+  ctx.redirect('/views/index.html')
 })
 
 // 查询所有的用户
